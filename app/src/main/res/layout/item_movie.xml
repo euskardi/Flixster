@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="117dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -23,16 +23,22 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:fontFamily="sans-serif-condensed"
+        android:foregroundTint="#BA1E1E"
+        android:textAlignment="viewStart"
         android:textSize="24sp"
+        android:textStyle="bold"
         tools:text="Fast Furious Presents Hobbs and shaw" />
 
     <TextView
         android:id="@+id/tvOverview"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
+        android:layout_width="264dp"
+        android:layout_height="85dp"
         android:layout_below="@+id/tvTitle"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textAllCaps="false"
+        android:verticalScrollbarPosition="right"
         tools:text="Luca and his best friend Alberto experience an unforgettable summer on the Italian Riviera. But all the fun is threatened by a deeply-held secret: they are sea monsters from another world just below the water’s surface." />
 </RelativeLayout>

@@ -23,6 +23,9 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     Context context;
@@ -85,20 +88,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 //else imageUrl = poster image
                 imageUrl = movie.getPosterPath();
             }
-            Glide.with(context).load(imageUrl).placeholder(R.drawable.flicks_movie_placeholder).into(ivPoster);
+            Glide.with(context).load(imageUrl).placeholder(R.drawable.flicks_movie_placeholder).transform(new RoundedCornersTransformation(30, 9)).into(ivPoster);
         }
 
         @Override
         public void onClick(View v) {
+            // gets item position
             int position = getAdapterPosition();
+            // make sure the position is valid, i.e. actually exists in the view
+            if (position != RecyclerView.NO_POSITION) {
+                // get the movie at the position, this won't work if the class is static
                 Movie movie = movies.get(position);
+                // create intent for the new activity
                 Intent intent = new Intent(context, OneMovie.class);
-
-                // Using Parceler
+                // serialize the movie using parceler, use its short name as a key
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
-
-                // start the activity
+                // show the activity
                 context.startActivity(intent);
+            }
         }
     }
 }

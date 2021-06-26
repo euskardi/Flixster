@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.simpletodo.adapters.MovieAdapter;
 import com.example.simpletodo.models.Movie;
+import com.example.simpletodo.databinding.ActivityMainBinding;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Headers;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +35,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        // View -> ActivityMainBinding
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+        /*setContentView(R.layout.activity_main);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        movies = new ArrayList<>();*/
+
+        //Getting the View
+        View view = binding.getRoot();
+        setContentView(view);
+
+        //Getting the recycler view
+        RecyclerView rvMovies = binding.rvMovies;
+
         movies = new ArrayList<>();
 
         //Create the adapter
